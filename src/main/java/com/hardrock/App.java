@@ -23,14 +23,6 @@ public class App extends Application {
     private static boolean a = true;
     private static boolean b = true;
 
-    public static void setA(boolean a) {
-        App.a = a;
-    }
-
-    public static void setB(boolean b) {
-        App.b = b;
-    }
-
     @Override
     public void start(Stage stage) {
         DaoBottle daoBottle = DaoBottlePostgres.getInstance();
@@ -62,8 +54,8 @@ public class App extends Application {
                 Button exit = new Button("Выход");
                 exit.setOnAction(x -> {
                     stageSqlConnection.close();
-                    setA(false);
-                    setB(false);
+                    a = false;
+                    b = false;
                 });
                 VBox vBox = new VBox(label, database, user, password, enter, exit);
                 vBox.setSpacing(5);
